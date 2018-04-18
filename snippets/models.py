@@ -22,7 +22,7 @@ class Snippet(models.Model):
         ordering = ('created', )
 
     def save(self, *args, **kwargs):
-        ''' using pygments to create a highlighted html for a code snippet '''
+        ''' using pygments to create a highlighted html representation for a code snippet '''
         lexer = get_lexer_by_name(self.language)
         linenos = 'table' if self.linenos else False
         options = {'title': self.title} if self.title else {}
